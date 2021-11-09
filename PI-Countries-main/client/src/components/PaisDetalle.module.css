@@ -1,0 +1,143 @@
+.toito {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  background-image: url("wallpaperapp.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  background-position: center center;
+  backdrop-filter: blur(3px);
+}
+
+.container {
+  width: 98vw;
+  height: 96vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  top: 0;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  border: solid white 0.1vw;
+  background-image: url("wallpaperapp.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  position: absolute;
+  background-position: center center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.bkg {
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(0.25px);
+  background-color: rgba(100, 100, 100, 0.85);
+}
+
+.cuadrados {
+  width: 30vw;
+  height: 80vh;
+  border: 2px solid white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  background-color: rgba(100, 100, 100, 0.85);
+  margin: 0 1vw;
+}
+
+.cuadro {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  justify-items: center;
+  margin-top: 5vh;
+}
+
+.botonpro {
+  border-radius: 20px;
+  font-size: 2.25vh;
+  justify-content: center;
+  align-self: center;
+  justify-items: center;
+  width: 12vw;
+  height: 2.5vw;
+  background-color: rgba(100, 100, 100, 0.6);
+  border: 1px solid white;
+  font-weight: bolder;
+  text-decoration: none;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+}
+
+.botonpro:hover {
+  background-color: #ffffffa6;
+  color: white;
+  cursor: pointer;
+}
+
+.botonpro:focus {
+  outline: none;
+}
+
+.titulo {
+    font-size: 3.5vh;
+    font-weight: bolder;
+    color: black;
+    text-align: center;
+    margin-top: 2vh;
+}
+
+.titulopro {
+    font-size: 3.5vh;
+    font-weight: bolder;
+    color: darkblue;
+    text-align: center;
+    margin-top: 1vh;
+    text-decoration: none;
+}
+
+.pais {
+    font-size: 5vh;
+    font-weight: bolder;
+    color: white;
+    text-align: center;
+    margin-top: 1vh;
+}
+
+.titulolista {
+    font-size: 2.5vh;
+    font-weight: bolder;
+    color: black;
+    text-align: center;
+    margin-top: 1vh;
+    list-style-type: none;
+}
+
+.img {
+    margin: 1vw 1vh;
+    border: 2px solid white;
+}
+
+.detalles {
+    font-size: 2vh;
+    color: white
+}
+
+.listitaa + .listitaa {
+    margin-top: 1vh;
+}

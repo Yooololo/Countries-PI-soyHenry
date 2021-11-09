@@ -1,0 +1,180 @@
+.paises {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  /* grid-auto-rows: minmax(100px, auto); */
+  grid-template-rows: repeat(3,1fr);
+  justify-items: center;
+  text-decoration: none;
+  margin-top: 2vh;
+  padding: 0 0;
+}
+
+.cadapais {
+  text-decoration: none;
+}
+
+.losselect {
+    border-radius: 20px;
+    font-size: 2.25vh;
+    justify-content: center;
+    align-self: center;
+    justify-items: center;
+    width: 15vw;
+    height: 2.5vw;
+    background-color:#0000007a;
+    border: 1px solid white;
+    font-weight: bolder;
+    margin: 0.25rem;
+    text-decoration: none;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.boton {
+  border-radius: 20px;
+  font-size: 2.25vh;
+  justify-content: center;
+  align-self: center;
+  justify-items: center;
+  width: 18vw;
+  height: 2.5vw;
+  background-color: rgba(100, 100, 100, 0.85);
+  border: 1px solid white;
+  font-weight: bolder;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+}
+
+.boton:hover {
+  background-color: #ffffffa6;
+  color: white;
+  cursor: pointer;
+}
+
+.boton:focus {
+  outline: none;
+}
+
+.paginado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.todomenoscountries {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1vh;
+  margin-bottom: 3vh;
+  height: 5vh;
+}
+
+.widthtmc {
+  width: 60%;
+  padding: 0 20%;
+}
+
+.toito {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  background-image: url("wallpaperapp.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  background-position: center center;
+  backdrop-filter: blur(3px);
+}
+
+.container {
+    width: 98vw;
+    height: 96vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    top: 0;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    border: solid white 0.1vw;
+    background-image: url("wallpaperapp.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    position: absolute;
+    background-position: center center;
+  }
+
+  .bkg {
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(0.25px);
+    background-color: rgba(100, 100, 100, 0.85);
+  }
+
+  .about {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    border-radius: 20px;
+    font-size: 2vh;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+    justify-items: center;
+    align-items: center;
+    width: 5vw;
+    height: 3vh;
+    background-color: rgba(100, 100, 100, 0.85);
+    border: 1px solid white;
+    font-weight: bolder;
+    color: white;
+    display: flex;
+    text-decoration: none;
+  }
+
+  .about:hover {
+    background-color: rgb(50, 50, 50);   
+    cursor: pointer;
+}
+
+.landing {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  border-radius: 20px;
+  font-size: 2vh;
+  justify-content: center;
+  justify-self: center;
+  align-self: center;
+  justify-items: center;
+  align-items: center;
+  width: 5vw;
+  height: 3vh;
+  background-color: rgba(100, 100, 100, 0.85);
+  border: 1px solid white;
+  font-weight: bolder;
+  color: white;
+  display: flex;
+  text-decoration: none;
+}
+
+.landing:hover {
+  background-color: rgb(50, 50, 50);   
+  cursor: pointer;
+}

@@ -1,0 +1,285 @@
+.listita {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .toito {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    background-image: url("wallpaperapp.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    background-position: center center;
+    backdrop-filter: blur(3px);
+  }
+  
+  
+  .container {
+    width: 98vw;
+    height: 96vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    top: 0;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    border: solid white 0.1vw;
+    background-image: url("wallpaperapp.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    position: absolute;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bkg {
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(2px);
+    background-color: rgba(100, 100, 100, 0.6);
+  }
+  
+  .boton {
+    border-radius: 20px;
+    font-size: 2.25vh;
+    justify-content: center;
+    align-self: center;
+    justify-items: center;
+    width: 12vw;
+    height: 2.5vw;
+    background-color: rgba(100, 100, 100, 0.6);
+    border: 1px solid white;
+    font-weight: bolder;
+    margin-right: 0.25rem;
+    text-decoration: none;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+  }
+  
+  .boton:hover {
+    background-color: #ffffffa6;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .boton:focus {
+    outline: none;
+  }
+  
+  .losselect {
+    border-radius: 20px;
+    font-size: 2.25vh;
+    justify-content: center;
+    align-self: center;
+    justify-items: center;
+    width: 15vw;
+    height: 2.5vw;
+    background-color: rgba(100, 100, 100, 0.6);
+    border: 1px solid white;
+    font-weight: bolder;
+    margin-right: 0.25rem;
+    text-decoration: none;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+  }
+  
+  .lospaises {
+    border-radius: 20px;
+    font-size: 2.25vh;
+    justify-content: center;
+    align-self: center;
+    justify-items: center;
+    width: auto;
+    padding: 0 0.5vw;
+    height: 2.5vw;
+    background-color: rgba(100, 100, 100, 0.6);
+    border: 1px solid white;
+    font-weight: bolder;
+    margin-right: 0.25rem;
+    text-decoration: none;
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    align-items: center;
+    color: black;
+  }
+  
+  .botonpro {
+    border-radius: 20px;
+    font-size: 2.25vh;
+    justify-content: center;
+    align-self: center;
+    justify-items: center;
+    width: 12vw;
+    height: 2.5vw;
+    background-color: rgba(100, 100, 100, 0.6);
+    border: 1px solid white;
+    font-weight: bolder;
+    text-decoration: none;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+  }
+  
+  .botonpro:hover {
+    background-color: #ffffffa6;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .botonpro:focus {
+    outline: none;
+  }
+  
+  .options {
+    border-radius: 20px;
+    font-size: 2.25vh;
+    justify-content: center;
+    align-self: center;
+    justify-items: center;
+    width: 15vw;
+    height: 2.5vw;
+    background-color: rgba(100, 100, 100, 0.6);
+    border: 1px solid white;
+    font-weight: bolder;
+    margin-right: 0.25rem;
+    text-decoration: none;
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    align-items: center;
+    color: black;
+  }
+  
+  .optionscontrol {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .orienta {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .titulo {
+    font-size: 5vh;
+    font-weight: bolder;
+    color: white;
+    text-align: center;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    border-radius: 20px;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    justify-items: center;
+    width: 30vw;
+    height: 5vw;
+    background-color: rgba(100, 100, 100, 0.6);
+    border: 1px solid white;
+    font-weight: bolder;
+    display: flex;
+  }
+  
+  .inputBusqueda {
+    justify-content: center;
+    text-align: center;
+    font-size: 2.25vh;
+    margin-right: 0.5vw;
+    border-radius: 20px;
+    background-color: rgba(100, 100, 100, 0.85);
+    border: 1px solid white;
+    height: 2.25vw;
+    font-weight: bold;
+  }
+  
+  .inputBusqueda::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 2vh;
+    font-weight: bold;
+  }
+  
+  .inputBusqueda:focus{
+    outline: none;
+  }
+  
+  .inputBusquedacb {
+    justify-content: center;
+    text-align: center;
+    align-self: center;
+    align-items: center;
+    justify-items: center;
+    margin-left: 1vw;
+    border-radius: 20px;
+    background-color: rgba(100, 100, 100, 0.85);
+    border: 1px solid white;
+    height: 2.25vw;
+    font-weight: bold;
+    transform: scale(2);
+    display: flex;
+  }
+  
+  .inputBusquedacb::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 2vh;
+    font-weight: bold;
+  }
+  
+  .inputBusquedacb:focus{
+    outline: none;
+  }
+  
+  .botoncin {
+    border-radius: 20px;
+    font-size: 2.25vh;
+    justify-content: center;
+    align-self: center;
+    justify-items: center;
+    width: 2vw;
+    height: 2vw;
+    background-color: rgba(100, 100, 100, 0.6);
+    border: 1px solid white;
+    font-weight: bolder;
+    margin-left: 0.5rem;
+    text-decoration: none;
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    align-items: flex-start;
+    color: black;
+  }
+  
+  .botoncin:hover {
+    background-color: #ffffffa6;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .botoncin:focus {
+    outline: none;
+  }
+  
+  .lista {
+    display: flex;
+    flex-direction: row;
+  }
