@@ -10,7 +10,7 @@
 }
 
 .titulo {
-    background-color: rgba(100, 100, 100, 0.85);
+    background-color: rgba(175, 175, 175, 0.8);
     border: black solid 3px;
     border-radius: 10px;
     color: black;
@@ -24,7 +24,7 @@
 }
 
 .homebtn {
-    background-color: rgba(100, 100, 100, 0.85);
+    background-color: rgba(175, 175, 175, 0.8);
     border: black solid 3px;
     border-radius: 10px;
     color: black;
@@ -39,7 +39,7 @@
 
 
 .homebtn:hover {
-    background-color:#000000a6;
+    background-color:rgb(75, 75, 75, 0.85);
     color: white;   
     cursor: pointer;
 }

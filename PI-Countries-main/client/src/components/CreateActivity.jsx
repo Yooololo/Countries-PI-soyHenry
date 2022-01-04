@@ -30,7 +30,7 @@ export default function CreateActivity() {
     difficulty: "",
     duration: "",
     season: "",
-    country: [],
+    country: '',
   });
 
   useEffect(() => {
@@ -69,12 +69,23 @@ export default function CreateActivity() {
     }
   }
 
+  function estaEnElInputCountry(c) {
+    for (let i = 0; i < input.country.length; i++) {
+      if (input.country[i] === c) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   function handleSelect(e) {
     e.preventDefault();
+    if(estaEnElInputCountry(e.target.value) === false) {
     setInput({
       ...input,
       country: [...input.country, e.target.value],
     });
+  }
   }
 
   function handleDelete(c) {
@@ -126,7 +137,7 @@ export default function CreateActivity() {
     <div className={a.toito}>
     <div className={a.bkg} />
     <div className={a.container}>
-      <Link to="/home">
+      <Link className={a.link} to="/home">
         <button className={a.botonpro}>Home</button>
       </Link>
         <h1 className={a.titulo}>Create Activity</h1>
@@ -250,12 +261,12 @@ export default function CreateActivity() {
           </div>
           <div className={a.orienta}>
             <p className={a.losselect}>Countries:</p>
-            <select id="countryselect" onChange={(e) => handleSelect(e)}>
-              <option selected="isSelected" value>
+            <select className={a.elfknSelect} defaultValue='SelectActivities' id="countryselect" onChange={(e) => handleSelect(e)}>
+              <option disabled value='SelectActivities'>
                 Select countries
               </option>
               {countries.map((country) => (
-                <option key={country.id} value={country.name}>
+                <option key={country.name} value={country.name}>
                   {country.name}
                 </option>
               ))}
@@ -263,10 +274,10 @@ export default function CreateActivity() {
           </div>
           <div className={a.orienta}>
             <p className={a.losselect}>Selected Countries:</p>
-            <ul className={a.lista}>
-              <li className={a.listita}>
-                {input.country.map((country) => (
-                  <p className={a.lospaises}>
+            <div className={a.lista}>
+              <div className={a.listita}>
+                {input.country && input.country.length ? input.country.map((country) => (
+                  <p key={country} className={a.lospaises}>
                     {country}
                     <button
                       className={a.botoncin}
@@ -276,9 +287,9 @@ export default function CreateActivity() {
                       x
                     </button>
                   </p>
-                ))}
-              </li>
-            </ul>
+                )) : ''}
+              </div>
+            </div>
           </div>
           <div className={a.orienta}>
             <button className={a.boton} type="submit">

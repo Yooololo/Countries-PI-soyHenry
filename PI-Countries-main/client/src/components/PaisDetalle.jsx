@@ -19,7 +19,7 @@ export default function PaisDetalle(props) {
     <div className={a.toito}>
       <div className={a.bkg} />
       <div className={a.container}>
-        <Link to="/home">
+        <Link className={a.link} to="/home">
           <button className={a.botonpro}>Home</button>
         </Link>
       {paisDetail ? (
@@ -27,6 +27,7 @@ export default function PaisDetalle(props) {
         <div className={a.cuadrados}>
           <h1 className={a.pais}>{paisDetail.name}</h1>
           <img className={a.img} src={paisDetail.image} alt={paisDetail.name}></img>
+          <p className={a.titulo}>Official Name: {paisDetail.officialname}</p>
           <p className={a.titulo}>Continent: {paisDetail.continent}</p>
           <p className={a.titulo}>Capital: {paisDetail.capital}</p>
           {(paisDetail.subregion) ? <p className={a.titulo}>Subregion: {paisDetail.subregion}</p> : null}
@@ -44,7 +45,6 @@ export default function PaisDetalle(props) {
             </a>
           </p>
           <p className={a.titulo}>Timezones: {paisDetail.timezones}</p>
-          <p className={a.titulo}>Official Name: {paisDetail.officialname}</p>
           <p className={a.titulo}>
             Currency: {paisDetail.currency} ({paisDetail.currencysymbol})
           </p>
@@ -52,12 +52,12 @@ export default function PaisDetalle(props) {
           <div className={a.cuadrados}>
           <p className={a.titulo}>Activities:</p>
           {
-            <div className={a.titulolista}>
-              {paisDetail.activities
+            <div className={a.titulolista}><hr/>
+              {paisDetail.activities && paisDetail.activities.length
                 ? paisDetail.activities.map((activity) => (
-                    <li className={a.listitaa} key={activity.activityname}>Activity: {activity.activityname} <li className={a.detalles}>Duration: {activity.duration} Season: {activity.season} Difficulty: {activity.difficulty}</li></li>
+                    <li className={a.listitaa} key={activity.activityname}>Activity: {activity.activityname} <p className={a.detalles}>Duration: {activity.duration} Season: {activity.season} Difficulty: {activity.difficulty}</p><hr/></li>
                   ))
-                : null}
+                : <div>{paisDetail.name} has no activities related to the country</div>}
             </div>
           }
           </div>

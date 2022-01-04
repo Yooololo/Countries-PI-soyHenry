@@ -6,7 +6,6 @@ import {
   postCountryActivity,
   getCountries,
   getActivities,
-  filterActions,
 } from "../actions";
 import a from "./AddCountryActivity.module.css";
 
@@ -18,18 +17,46 @@ export default function AddCountryActivity() {
   const paises = useSelector((state) => state.allContinents);
 
   const [input, setInput] = useState({
-    activityname: "",
+    activityname: '',
     country: '',
   });
 
+  function estaEnElInputActivity(a) {
+    for (let i = 0; i < input.activityname.length; i++) {
+      if (input.activityname[i] === a) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   function handleSelectAction(e) {
     e.preventDefault();
-    input.activityname = e.target.value;
+    if(estaEnElInputActivity(e.target.value) === false) {
+      setInput({
+      ...input,
+      activityname: [...input.activityname, e.target.value],
+    });
   }
+}
+
+function estaEnElInputCountry(c) {
+  for (let i = 0; i < input.country.length; i++) {
+    if (input.country[i] === c) {
+      return true;
+    }
+  }
+  return false;
+}
 
   function handleSelectCountry(e) {
     e.preventDefault();
-    input.country= e.target.value;
+    if(estaEnElInputCountry(e.target.value) === false) {
+    setInput({
+      ...input,
+      country: [...input.country, e.target.value],
+    });
+  }
   }
 
   function encuentrapais(nombre) {
@@ -62,7 +89,21 @@ export default function AddCountryActivity() {
     }
     setInput({
         activityname: "",
-        country: [],
+        country: "",
+    });
+  }
+
+  function handleDeleteActivity(a) {
+    setInput({
+      ...input,
+      activityname: input.activityname.filter((activity) => activity !== a),
+    });
+  }
+
+  function handleDeleteCountry(c) {
+    setInput({
+      ...input,
+      country: input.country.filter((country) => country !== c),
     });
   }
 
@@ -78,7 +119,7 @@ export default function AddCountryActivity() {
     }
     setInput({
       activityname: "",
-      country: [],
+      country: '',
     });
     history.push("/home");
   }
@@ -87,10 +128,10 @@ export default function AddCountryActivity() {
     <div className={a.toito}>
       <div className={a.bkg} />
       <div className={a.container}>
-        <Link to="/home">
+        <Link className={a.link} to="/home">
           <button className={a.botonpro}>Home</button>
         </Link>
-        <h1 className={a.titulo}>Create Activity</h1>
+        <h1 className={a.titulo}>Relate Country-Activity</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className={a.paises}>
         <div className={a.orienta}>
@@ -98,24 +139,45 @@ export default function AddCountryActivity() {
             <select
             className={a.inputBusqueda}
               onChange={(e) => handleSelectAction(e)}
+              defaultValue="All"
             >
-              <option disabled selected="isSelected" value="All">
+              <option disabled value="All">
                 Select Activity
               </option>
               {activities.map((activity) => {
                 return (
-                  <option value={activity.activityname}>
+                  <option key={activity.activityname} value={activity.activityname}>
                     {activity.activityname}
                   </option>
                 );
-              })}
+              })
+            }
             </select>
+          </div>
+          <div className={a.orienta}>
+            <p className={a.losselect}>Selected Activities:</p>
+            <div className={a.orienta}>
+              <div className={a.orienta}>
+                {input.activityname && input.activityname.length ? input.activityname.map((activity) => (
+                  <p className={a.lospaises} key={activity}>
+                    {activity}
+                    <button
+                    className={a.botoncin}
+                      type="button"
+                      onClick={() => handleDeleteActivity(activity)}
+                    >
+                      x
+                    </button>
+                  </p>
+                )) : ''}
+              </div>
+            </div>
           </div>
         </div>
         <div className={a.orienta}>
           <p className={a.losselect}>Select Country:</p>
-          <select id="countryselect" className={a.inputBusqueda} onChange={(e) => handleSelectCountry(e)}>
-            <option disabled selected="isSelected" value>
+          <select  defaultValue='habibi' id="countryselect" className={a.inputBusqueda} onChange={(e) => handleSelectCountry(e)}>
+            <option disabled value='habibi'>
               Select Country
             </option>
             {countries.map((country) => (
@@ -125,6 +187,25 @@ export default function AddCountryActivity() {
             ))}
           </select>
         </div>
+        <div className={a.orienta}>
+            <p className={a.losselect}>Selected Countries:</p>
+            <div className={a.lista}>
+              <div className={a.listita}>
+                {input.country && input.country.length ? input.country.map((country) => (
+                  <p key={country} className={a.lospaises}>
+                    {country}
+                    <button
+                      className={a.botoncin}
+                      type="button"
+                      onClick={() => handleDeleteCountry(country)}
+                    >
+                      x
+                    </button>
+                  </p>
+                )) : ''}
+              </div>
+            </div>
+          </div>
         <div className={a.orienta}>
         <button className={a.boton} type="submit">Submit Activity</button>
         <button className={a.boton} type="reset" onClick={(e) => handleReset(e)}>

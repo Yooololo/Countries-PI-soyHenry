@@ -1,12 +1,12 @@
 .losselectores {
     justify-content: center;
     text-align: center;
-    font-size: 2.25vh;
+    font-size: 2vh;
     margin-right: 0.5vw;
     border-radius: 20px;
-    background-color: rgba(100, 100, 100, 0.85);
+    background-color: rgba(175, 175, 175, 0.8);
     border: 1px solid white;
-    height: 2.25vw;
+    height: 4vh;
     font-weight: bold;
   }
   

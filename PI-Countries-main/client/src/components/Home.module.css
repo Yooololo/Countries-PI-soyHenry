@@ -16,13 +16,13 @@
 
 .losselect {
     border-radius: 20px;
-    font-size: 2.25vh;
+    font-size: 2vh;
     justify-content: center;
     align-self: center;
     justify-items: center;
-    width: 15vw;
-    height: 2.5vw;
-    background-color:#0000007a;
+    width: 12vw;
+    height: 4vh;
+    background-color:rgb(75, 75, 75, 0.85);;
     border: 1px solid white;
     font-weight: bolder;
     margin: 0.25rem;
@@ -36,16 +36,16 @@
 
 .boton {
   border-radius: 20px;
-  font-size: 2.25vh;
+  font-size: 2vh;
   justify-content: center;
   align-self: center;
   justify-items: center;
-  width: 18vw;
-  height: 2.5vw;
-  background-color: rgba(100, 100, 100, 0.85);
+  width: 12vw;
+  height: 4vh;
+  background-color: rgba(175, 175, 175, 0.8);
   border: 1px solid white;
   font-weight: bolder;
-  margin: 0 0.5rem;
+  margin: 0 2rem;
   text-decoration: none;
   display: flex;
   align-content: center;
@@ -55,12 +55,42 @@
 }
 
 .boton:hover {
-  background-color: #ffffffa6;
+  background-color: rgb(75, 75, 75, 0.85);
   color: white;
   cursor: pointer;
 }
 
 .boton:focus {
+  outline: none;
+}
+
+.botonReload {
+  border-radius: 20px;
+  font-size: 2.25vh;
+  justify-content: center;
+  align-self: center;
+  justify-items: center;
+  width: 15vw;
+  height: 2.5vw;
+  background-color: rgba(175, 175, 175, 0.8);
+  border: 1px solid white;
+  font-weight: bolder;
+  margin: 0 7rem;
+  text-decoration: none;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+}
+
+.botonReload:hover {
+  background-color: rgb(75, 75, 75, 0.85);
+  color: white;
+  cursor: pointer;
+}
+
+.botonReload:focus {
   outline: none;
 }
 
@@ -76,11 +106,20 @@
   flex-direction: row;
   justify-items: center;
   text-align: center;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  margin-top: 1vh;
-  margin-bottom: 3vh;
-  height: 5vh;
+  height: auto;
+}
+
+.todomenoscountriesarriba {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  margin-bottom: 0.5rem;
 }
 
 .widthtmc {
@@ -124,7 +163,7 @@
     width: 100vw;
     height: 100vh;
     backdrop-filter: blur(0.25px);
-    background-color: rgba(100, 100, 100, 0.85);
+    background-color: rgba(175, 175, 175, 0.8);
   }
 
   .about {
@@ -138,9 +177,9 @@
     align-self: center;
     justify-items: center;
     align-items: center;
-    width: 5vw;
+    width: 4.5vw;
     height: 3vh;
-    background-color: rgba(100, 100, 100, 0.85);
+    background-color: rgba(175, 175, 175, 0.8);
     border: 1px solid white;
     font-weight: bolder;
     color: white;
@@ -149,8 +188,7 @@
   }
 
   .about:hover {
-    background-color: rgb(50, 50, 50);   
-    cursor: pointer;
+    background-color: rgb(75, 75, 75, 0.85);
 }
 
 .landing {
@@ -164,9 +202,9 @@
   align-self: center;
   justify-items: center;
   align-items: center;
-  width: 5vw;
+  width: 4.5vw;
   height: 3vh;
-  background-color: rgba(100, 100, 100, 0.85);
+  background-color: rgba(175, 175, 175, 0.8);
   border: 1px solid white;
   font-weight: bolder;
   color: white;
@@ -175,6 +213,15 @@
 }
 
 .landing:hover {
-  background-color: rgb(50, 50, 50);   
+  background-color: rgb(75, 75, 75, 0.85); 
   cursor: pointer;
+}
+
+.linkPais {
+  text-decoration: none;
+}
+
+.enRow {
+  display: flex;
+  flex-direction: row;
 }

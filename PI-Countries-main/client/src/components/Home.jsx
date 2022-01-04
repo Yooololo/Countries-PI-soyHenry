@@ -7,8 +7,6 @@ import {
   filterActions,
   order,
   orderbypop,
-  getCountryActivity,
-  postCountryActivity,
   getActivities,
 } from "../actions";
 import { Link } from "react-router-dom";
@@ -89,7 +87,7 @@ export default function Home() {
   }
 
   return (
-    <div className={a.toito}>
+    <div className={a.toito} key='abarahamelabaneranena'>
       <div className={a.bkg} />
       <div className={a.container}>
         <SearchBar />
@@ -100,15 +98,7 @@ export default function Home() {
           Landing
         </Link>
         <div className={a.widthtmc}>
-          <div className={a.todomenoscountries}>
-            <button
-              className={a.boton}
-              onClick={(e) => {
-                handleClick(e);
-              }}
-            >
-              Reload Countries
-            </button>
+          <div className={a.todomenoscountriesarriba}>
             <Link className={a.boton} to="/countries">
               Add Country
             </Link>
@@ -118,20 +108,19 @@ export default function Home() {
             <Link className={a.boton} to="/countryactivity">
               Relate Country-Activty
             </Link>
-            {/* <Link className={a.boton} to={`/activities`}>
-              See Activities
-            </Link> */}
           </div>
         </div>
         <div className={a.widthtmc}>
           <div className={a.todomenoscountries}>
+            <div className={a.enRow}>
             <div>
               <p className={a.losselect}>Order by Name</p>
               <select
                 className="losselectores piiiiter"
                 onChange={(e) => handleOrder(e)}
+                defaultValue='-'
               >
-                <option selected="isSelected">-</option>
+                <option >-</option>
                 <option value="Ascendant">A-Z</option>
                 <option value="Descendant">Z-A</option>
               </select>
@@ -141,19 +130,33 @@ export default function Home() {
               <select
                 className="losselectores harringui"
                 onChange={(e) => handleOrderPop(e)}
+                defaultValue='-'
               >
-                <option selected="isSelected">-</option>
+                <option>-</option>
                 <option value="Ascendantpop">Lowest to Highest</option>
                 <option value="Descendantpop">Highest to Lowest</option>
               </select>
             </div>
+            </div>
+            <div>
+            <button
+              className={a.botonReload}
+              onClick={(e) => {
+                handleClick(e);
+              }}
+            >
+              Reload Countries
+            </button>
+            </div>
+            <div className={a.enRow}>
             <div>
               <p className={a.losselect}>Filter by Continent</p>
               <select
                 className="losselectores"
                 onChange={(e) => handleFilterContinent(e)}
+                defaultValue='All'
               >
-                <option selected="isSelected" value="All">
+                <option value="All">
                   All
                 </option>
                 <option value="Africa">Africa</option>
@@ -170,32 +173,28 @@ export default function Home() {
               <select
                 className="losselectores"
                 onChange={(e) => handleFilterAction(e)}
+                defaultValue='All'
               >
-                <option selected="isSelected" value="All">
+                <option value="All">
                   All
                 </option>
                 {activities.map((activity) => {
                   return (
-                    <option value={activity.activityname}>
+                    <option value={activity.activityname} key={activity.activityname}>
                       {activity.activityname}
                     </option>
                   );
                 })}
               </select>
             </div>
+            </div>
           </div>
         </div>
-        <Paginado
-          className={a.paginado}
-          countriesPerPage={countriesPerPage}
-          allCountries={allCountries}
-          paginado={paginado}
-        />
         <div className={a.paises}>
           {currentCountries.map((country) => {
             return (
-              <div className={a.cadapais}>
-                <Link to={`/countries/${country.id}`}>
+              <div className={a.cadapais} key={country.id}>
+                <Link className={a.linkPais}to={`/countries/${country.id}`}>
                   <PaisSimple
                     name={country.name}
                     image={country.image}
@@ -208,6 +207,12 @@ export default function Home() {
             );
           })}
         </div>
+        <Paginado
+          className={a.paginado}
+          countriesPerPage={countriesPerPage}
+          allCountries={allCountries}
+          paginado={paginado}
+        />
       </div>
     </div>
   );

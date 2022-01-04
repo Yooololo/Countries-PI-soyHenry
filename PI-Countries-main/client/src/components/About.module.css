@@ -1,3 +1,95 @@
-.about {
-    display: flex;
-}
+
+.toito {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    background-image: url("wallpaperapp.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    background-position: center center;
+    backdrop-filter: blur(3px);
+  }
+  
+  .container {
+      width: 98vw;
+      height: 96vh;
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      margin-left: 1vw;
+      margin-right: 1vw;
+      top: 0;
+      overflow: hidden;
+      border-radius: 1.5rem;
+      border: solid white 0.1vw;
+      background-image: url("wallpaperapp.jpg");
+      background-repeat: no-repeat;
+      background-size: 100vw;
+      position: absolute;
+      background-position: center center;
+      display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        
+    }
+  
+    .bkg {
+      width: 100vw;
+      height: 100vh;
+      backdrop-filter: blur(0.25px);
+      background-color: rgba(175, 175, 175, 0.8);
+    }
+  
+    .boton {
+        border-radius: 20px;
+        font-size: 2.25vh;
+        justify-content: center;
+        align-self: center;
+        justify-items: center;
+        width: 9vw;
+        height: 2.5vw;
+        background-color: rgba(175, 175, 175, 0.8);
+        border: 1px solid white;
+        font-weight: bolder;
+        margin: 3rem 0rem;
+        text-decoration: none;
+        display: flex;
+        align-content: center;
+        flex-direction: column;
+        align-items: center;
+        color: black;
+      }
+      
+      .boton:hover {
+        background-color: rgb(75, 75, 75, 0.85);
+        color: white;
+        cursor: pointer;
+      }
+      
+      .boton:focus {
+        outline: none;
+      }
+      
+      .titulo {
+        border-radius: 20px;
+        font-size: 3.5vh;
+        justify-content: center;
+        align-self: center;
+        justify-items: center;
+        width: auto;
+        height:auto;
+        padding: 0.5rem;
+        background-color: rgba(175, 175, 175, 0.8);
+        border: 1px solid white;
+        font-weight: bolder;
+        text-decoration: none;
+        color: black;
+      }
+
+      .link {
+        text-decoration: none;
+        color: darkblue;
+      }

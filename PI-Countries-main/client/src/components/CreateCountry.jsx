@@ -42,7 +42,7 @@ export default function CreateCountry() {
     officialname: "",
     currency: "",
     currencysymbol: "",
-    activities: [],
+    activities: '',
   });
 
   useEffect(() => {
@@ -63,12 +63,23 @@ export default function CreateCountry() {
     );
   }
 
+  function estaEnElInputActivity(a) {
+    for (let i = 0; i < input.activities.length; i++) {
+      if (input.activities[i] === a) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   function handleSelect(e) {
     e.preventDefault();
+    if(estaEnElInputActivity(e.target.value) === false) {
     setInput({
       ...input,
       activities: [...input.activities, e.target.value],
     });
+  }
   }
 
   function handleDelete(a) {
@@ -96,7 +107,7 @@ export default function CreateCountry() {
       officialname: "",
       currency: "",
       currencysymbol: "",
-      activities: [],
+      activities: '',
     });
     history.push("/home");
   }
@@ -125,7 +136,7 @@ export default function CreateCountry() {
       officialname: "",
       currency: "",
       currencysymbol: "",
-      activities: [],
+      activities: '',
     });
   }
 
@@ -133,7 +144,7 @@ export default function CreateCountry() {
     <div className={a.toito}>
       <div className={a.bkg} />
       <div className={a.container}>
-        <Link to="/home">
+        <Link className={a.link} to="/home">
           <button className={a.botonpro}>Home</button>
         </Link>
         <h1 className={a.titulo}>Create Country</h1>
@@ -277,12 +288,12 @@ export default function CreateCountry() {
           <div className={a.orienta}>
             <div className={a.orienta}>
               <p className={a.losselect}>Acitivities:</p>
-              <select id="activityselect" onChange={(e) => handleSelect(e)}>
-                <option selected="isSelected" value>
+              <select defaultValue='SelectActivities' id="activityselect" className={a.elfknSelect} onChange={(e) => handleSelect(e)}>
+                <option disabled value='SelectActivities'>
                   Select activities
                 </option>
                 {activities.map((activity) => (
-                  <option key={activity.id} value={activity.activityname}>
+                  <option key={activity.activityname} value={activity.activityname}>
                     {activity.activityname}
                   </option>
                 ))}
@@ -291,21 +302,22 @@ export default function CreateCountry() {
             </div>
             <div className={a.orienta}>
             <p className={a.losselect}>Selected Activities:</p>
-            <ul className="listita">
-              <li className="listita">
-                {input.activities.map((activity) => (
-                  <p>
+            <div className={a.orienta}>
+              <div className={a.orienta}>
+                {input.activities && input.activities.length ? input.activities.map((activity) => (
+                  <p className={a.lasactivities} key={activity}>
                     {activity}
                     <button
+                    className={a.botoncin}
                       type="button"
                       onClick={() => handleDelete(activity)}
                     >
                       x
                     </button>
                   </p>
-                ))}
-              </li>
-            </ul>
+                )) : ""}
+              </div>
+            </div>
           </div>
           <div>
             <div className={a.orienta}>

@@ -55,7 +55,7 @@ function reducer(state = initialState, action) {
     const activityFilter =
         action.payload === "All"
           ? allCountries
-          : allCountries.filter(
+          : allCountries.filter( //eslint-disable-next-line
             (country) => {
               for(let i = 0; i < country['activities'].length; i++) {
                 if(country['activities'][i].activityname === action.payload) {
