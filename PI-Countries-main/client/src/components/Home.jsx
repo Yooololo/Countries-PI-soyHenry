@@ -195,7 +195,9 @@ export default function Home() {
           {allCountries &&
           allCountries.length &&
           allCountries[0] &&
-          currentCountries
+          currentCountries &&
+          currentCountries.length &&
+          currentCountries[0]
             ? currentCountries.map((country) => {
                 return (
                   <div className={a.cadapais} key={country.id}>
