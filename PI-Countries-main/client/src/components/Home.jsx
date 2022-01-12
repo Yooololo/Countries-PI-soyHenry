@@ -26,10 +26,10 @@ export default function Home() {
   const [countriesPerPage] = useState(paisesporpagina);
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
-  const currentCountries = allCountries.slice(
-    indexOfFirstCountry,
-    indexOfLastCountry
-  );
+  const currentCountries =
+    allCountries &&
+    allCountries[0] &&
+    allCountries.slice(indexOfFirstCountry, indexOfLastCountry);
 
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
