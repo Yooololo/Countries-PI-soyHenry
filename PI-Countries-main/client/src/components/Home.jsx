@@ -174,16 +174,18 @@ export default function Home() {
                   defaultValue="All"
                 >
                   <option value="All">All</option>
-                  {activities.map((activity) => {
-                    return (
-                      <option
-                        value={activity.activityname}
-                        key={activity.activityname}
-                      >
-                        {activity.activityname}
-                      </option>
-                    );
-                  })}
+                  {activities &&
+                    activities[0] &&
+                    activities.map((activity) => {
+                      return (
+                        <option
+                          value={activity.activityname}
+                          key={activity.activityname}
+                        >
+                          {activity.activityname}
+                        </option>
+                      );
+                    })}
                 </select>
               </div>
             </div>
