@@ -19,17 +19,19 @@ import "./Home.css";
 const paisesporpagina = 9;
 export default function Home() {
   const dispatch = useDispatch();
-  const allCountries = useSelector((state) => state.countries);
-  const activities = useSelector((state) => state.activities);
+  const allCountries = useSelector((state) => state.countries)
+    ? useSelector((state) => state.countries)
+    : [];
+  const activities = useSelector((state) => state.activities)
+    ? useSelector((state) => state.activities)
+    : [];
   const [, setOrdenado] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [countriesPerPage] = useState(paisesporpagina);
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
   const currentCountries =
-    allCountries &&
-    allCountries[0] &&
-    allCountries.slice(indexOfFirstCountry, indexOfLastCountry);
+    allCountries && allCountries.slice(indexOfFirstCountry, indexOfLastCountry);
 
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -175,7 +177,6 @@ export default function Home() {
                 >
                   <option value="All">All</option>
                   {activities &&
-                    activities[0] &&
                     activities.map((activity) => {
                       return (
                         <option
@@ -193,7 +194,6 @@ export default function Home() {
         </div>
         <div className={a.paises}>
           {allCountries &&
-            allCountries[0] &&
             currentCountries &&
             currentCountries.map((country) => {
               return (
