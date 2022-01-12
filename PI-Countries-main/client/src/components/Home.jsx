@@ -190,7 +190,9 @@ export default function Home() {
           </div>
         </div>
         <div className={a.paises}>
-          {currentCountries &&
+          {allCountries &&
+            allCountries[0] &&
+            currentCountries &&
             currentCountries.map((country) => {
               return (
                 <div className={a.cadapais} key={country.id}>
