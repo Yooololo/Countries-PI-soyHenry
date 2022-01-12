@@ -174,19 +174,18 @@ export default function Home() {
                   defaultValue="All"
                 >
                   <option value="All">All</option>
-                  {activities &&
-                    activities.length &&
-                    activities[0] &&
-                    activities.map((activity) => {
-                      return (
-                        <option
-                          value={activity.activityname}
-                          key={activity.activityname}
-                        >
-                          {activity.activityname}
-                        </option>
-                      );
-                    })}
+                  {activities && activities.length && activities[0]
+                    ? activities.map((activity) => {
+                        return (
+                          <option
+                            value={activity.activityname}
+                            key={activity.activityname}
+                          >
+                            {activity.activityname}
+                          </option>
+                        );
+                      })
+                    : ""}
                 </select>
               </div>
             </div>
@@ -194,24 +193,28 @@ export default function Home() {
         </div>
         <div className={a.paises}>
           {allCountries &&
-            allCountries.length &&
-            allCountries[0] &&
-            currentCountries &&
-            currentCountries.map((country) => {
-              return (
-                <div className={a.cadapais} key={country.id}>
-                  <Link className={a.linkPais} to={`/countries/${country.id}`}>
-                    <PaisSimple
-                      name={country.name}
-                      image={country.image}
-                      continent={country.continent}
-                      key={country.name}
-                      activities={country.activities}
-                    />
-                  </Link>
-                </div>
-              );
-            })}
+          allCountries.length &&
+          allCountries[0] &&
+          currentCountries
+            ? currentCountries.map((country) => {
+                return (
+                  <div className={a.cadapais} key={country.id}>
+                    <Link
+                      className={a.linkPais}
+                      to={`/countries/${country.id}`}
+                    >
+                      <PaisSimple
+                        name={country.name}
+                        image={country.image}
+                        continent={country.continent}
+                        key={country.name}
+                        activities={country.activities}
+                      />
+                    </Link>
+                  </div>
+                );
+              })
+            : ""}
         </div>
         <Paginado
           className={a.paginado}
