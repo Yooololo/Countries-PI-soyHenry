@@ -42,7 +42,7 @@ let sequelize =
         ssl: true,
       })
     : new Sequelize(
-        `postgres://${DB_USERLOC}:${DB_PASSWORDLOC}@${DB_HOSTLOC}/development`,
+        `postgres://${DB_USERLOC}:${DB_PASSWORDLOC}@${DB_HOSTLOC}/countries`,
         { logging: false, native: false }
       );
 
