@@ -1,59 +1,59 @@
 .paginado {
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    padding: 0 0;
-    margin: 0 0;
-    width: 60vw;
-    padding-left: 20vw;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  padding: 0 0;
+  margin: 0 0;
+  width: 60vw;
+  padding-left: 20vw;
 }
 
 .pagina {
-    list-style-type: none;
+  list-style-type: none;
 }
 
-.active {
-    font-weight: bolder;
-    background-color: #0000009a;
-    border-radius: 10px;
+.botoncitos.active {
+  font-weight: bolder;
+  background-color: rgb(75, 75, 75, 0.85);
+  color: white;
 }
 
 .botoncitos {
-    background-color: transparent;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline;
-    margin: 1vh 0.25vw;
-    padding: 0;
-    border: 1px solid #ffffff;
-    background-color: rgba(175, 175, 175, 0.8);
-    width: 2.5vw;
-    height: 3vh;
-    font-weight: bold;
-    border-radius: 20px;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline;
+  margin: 1vh 0.25vw;
+  padding: 0;
+  border: 1px solid #ffffff;
+  background-color: rgba(175, 175, 175, 0.8);
+  width: 2.5vw;
+  height: 3vh;
+  font-weight: bold;
+  border-radius: 20px;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
 }
 
 .botoncitos:hover {
-    background-color: rgb(75, 75, 75, 0.85);
-    color: white;   
-    cursor: pointer;
+  background-color: rgb(75, 75, 75, 0.85);
+  color: white;
+  cursor: pointer;
 }
 
-.botoncitos:focus{
-    outline: none;
+.botoncitos:focus {
+  outline: none;
 }
 
 .ordenapag {
-    display: flex;
-    justify-content: flex-start;
-    justify-items: center;
-    align-items: center;
-    flex-direction: row;
-    padding: 0 0;
-    margin: 0 0;
-    margin-left: -1vw;
+  display: flex;
+  justify-content: flex-start;
+  justify-items: center;
+  align-items: center;
+  flex-direction: row;
+  padding: 0 0;
+  margin: 0 0;
+  margin-left: -1vw;
 }
