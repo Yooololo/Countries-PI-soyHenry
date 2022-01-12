@@ -27,9 +27,9 @@ export default function Home() {
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
   const currentCountries =
-    allCountries &&
-    allCountries.length &&
-    allCountries.slice(indexOfFirstCountry, indexOfLastCountry);
+    allCountries && allCountries.length && allCountries[0]
+      ? allCountries.slice(indexOfFirstCountry, indexOfLastCountry)
+      : [];
 
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
