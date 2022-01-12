@@ -25,7 +25,7 @@ export default function Paginado({
   return (
     <nav className="ordenapag">
       <ul className="paginado">
-        <li className="pagespage" key={1}>
+        <li className="pagina" key={1}>
           <button
             className="botoncitos active"
             onClick={() => paginado(1)}
