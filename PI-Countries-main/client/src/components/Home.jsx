@@ -176,6 +176,7 @@ export default function Home() {
                   <option value="All">All</option>
                   {activities &&
                     activities.length &&
+                    activities[0] &&
                     activities.map((activity) => {
                       return (
                         <option
@@ -194,6 +195,7 @@ export default function Home() {
         <div className={a.paises}>
           {allCountries &&
             allCountries.length &&
+            allCountries[0] &&
             currentCountries &&
             currentCountries.map((country) => {
               return (
