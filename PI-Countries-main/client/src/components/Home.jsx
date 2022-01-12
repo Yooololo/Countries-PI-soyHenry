@@ -174,6 +174,8 @@ export default function Home() {
                   defaultValue="All"
                 >
                   <option value="All">All</option>
+                  {console.log(activities)}
+                  {console.log(currentCountries)}
                   {activities && activities.length && activities[0]
                     ? activities.map((activity) => {
                         return (
