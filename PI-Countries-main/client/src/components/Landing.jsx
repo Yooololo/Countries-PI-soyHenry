@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import "./Landing.css";
 import Tierra from "../components/Video/Tierra.mp4";
+import { getCountries, getActivities } from "../actions";
 
 export default function LandingPage() {
   const dispatch = useDispatch();
