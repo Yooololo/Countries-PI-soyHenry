@@ -19,19 +19,17 @@ import "./Home.css";
 const paisesporpagina = 9;
 export default function Home() {
   const dispatch = useDispatch();
-  const allCountries = useSelector((state) => state.countries)
-    ? useSelector((state) => state.countries)
-    : [];
-  const activities = useSelector((state) => state.activities)
-    ? useSelector((state) => state.activities)
-    : [];
-  const [, setOrdenado] = useState("");
+  const allCountries = useSelector((state) => state.countries);
+  const activities = useSelector((state) => state.activities);
+  const [ordenado, setOrdenado] = useState(""); //eslint-disable-line
   const [currentPage, setCurrentPage] = useState(1);
-  const [countriesPerPage] = useState(paisesporpagina);
+  const [countriesPerPage, setCountriesPerPage] = useState(paisesporpagina); //eslint-disable-line
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
   const currentCountries =
-    allCountries && allCountries.slice(indexOfFirstCountry, indexOfLastCountry);
+    allCountries &&
+    allCountries.length &&
+    allCountries.slice(indexOfFirstCountry, indexOfLastCountry);
 
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
