@@ -26,7 +26,6 @@ const axios = require("axios");
 const dotenv = require("dotenv");
 dotenv.config();
 
-axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 const country_activity = require("./src/forpsql/country_activity");
 
 // Syncing all the models at once.
