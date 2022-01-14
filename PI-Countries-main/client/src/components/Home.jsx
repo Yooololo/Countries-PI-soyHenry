@@ -176,7 +176,10 @@ export default function Home() {
                   <option value="All">All</option>
                   {console.log(activities)}
                   {console.log(currentCountries)}
-                  {activities && activities.length && activities[0]
+                  {activities &&
+                  activities.length &&
+                  activities[0] &&
+                  activities.length !== 0
                     ? activities.map((activity) => {
                         return (
                           <option
@@ -199,7 +202,8 @@ export default function Home() {
           allCountries[0] &&
           currentCountries &&
           currentCountries.length &&
-          currentCountries[0]
+          currentCountries[0] &&
+          currentCountries.length !== 0
             ? currentCountries.map((country) => {
                 return (
                   <div className={a.cadapais} key={country.id}>
