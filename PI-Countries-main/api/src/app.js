@@ -11,7 +11,7 @@ server.name = "API";
 server.use(cors({ origin: /\.herokuapp\.com$/ }));
 
 server.use(express.urlencoded({ extended: true, limit: "50mb" }));
-server.use(express.json({ limit: "50mb" }));
+server.use(express.json({ limit: "100mb" }));
 server.use(cookieParser());
 server.use(morgan("dev"));
 server.use((req, res, next) => {
