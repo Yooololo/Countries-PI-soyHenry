@@ -17,7 +17,10 @@ server.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
     "https://countries-pi-soy-henry.vercel.app/" ||
-      "https://countries-lorenzoblanda-heroku.herokuapp.com"
+      "https://countries-pi-soy-henry.vercel.app/home" ||
+      "https://countries-lorenzoblanda-heroku.herokuapp.com" ||
+      "https://countries-lorenzoblanda-heroku.herokuapp.com/countries" ||
+      "https://countries-lorenzoblanda-heroku.herokuapp.com/activity"
   ); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
