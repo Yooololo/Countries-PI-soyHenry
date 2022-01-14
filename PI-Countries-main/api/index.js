@@ -21,7 +21,6 @@ const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 const { Country } = require("./src/db");
 const { Sequelize } = require("sequelize");
-const PORT = 3001;
 const axios = require("axios");
 const dotenv = require("dotenv");
 dotenv.config();
@@ -30,8 +29,8 @@ const country_activity = require("./src/forpsql/country_activity");
 
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
-  server.listen(PORT, () => {
-    console.log(`Listening on: PORT ${PORT}`); // eslint-disable-line no-console
+  server.listen(process.env.PORT, () => {
+    console.log(`Listening on: PORT ${process.env.PORT}`); // eslint-disable-line no-console
     const countriesAPI = "https://restcountries.com/v3.1/all";
     const APIData = async (req, res) => {
       const getAllData = await axios.get(countriesAPI);
