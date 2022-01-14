@@ -19,7 +19,7 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
-const { Country, Activity, Country_Activity } = require("./src/db");
+const { Country } = require("./src/db");
 const { Sequelize } = require("sequelize");
 const PORT = 3001;
 const axios = require("axios");
@@ -30,7 +30,7 @@ axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 const country_activity = require("./src/forpsql/country_activity");
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   server.listen(PORT, () => {
     console.log(`Listening on: PORT ${PORT}`); // eslint-disable-line no-console
     const countriesAPI = "https://restcountries.com/v3.1/all";
