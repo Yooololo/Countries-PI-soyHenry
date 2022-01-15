@@ -1,11 +1,10 @@
-const { Router } = require('express');
-const { Activity } = require('../db');
-
+const { Router } = require("express");
+const { Activity } = require("../db");
 
 const router = Router();
 
-router.get('/', (req, res, next) => {
-    return Activity.findAll()
+router.get("/", (req, res, next) => {
+  return Activity.findAll()
     .then((activity) => {
       res.json(activity);
     })
@@ -15,28 +14,39 @@ router.get('/', (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-    const { activityname, difficulty, duration, season } = req.body;
-    const newActivity = Activity.create({
-      activityname,
-      difficulty, 
-      duration, 
-      season,
-    });
-    return newActivity
-        .then((activity) => {
+  const { activityname, difficulty, duration, season, countries } = req.body;
+  const newActivity = Activity.create({
+    activityname,
+    difficulty,
+    duration,
+    season,
+  });
+  newActivity.then((activity) => {
+    activity.setCountries(countries);
+  });
+  return newActivity
+    .then((activity) => {
       res.json(activity);
     })
-        .catch((e) => {
+    .catch((e) => {
+      next(e);
+    });
+});
+
+router.put("/", (req, res, next) => {
+  try {
+    res.status(400).json("No authorization for the required action");
+  } catch (e) {
     next(e);
-  });
+  }
 });
 
-router.put('/', (req, res, next) => {
-    
-});
-
-router.delete('/', (req, res, next) => {
-    
+router.delete("/", (req, res, next) => {
+  try {
+    res.status(400).json("No authorization for the required action");
+  } catch (e) {
+    next(e);
+  }
 });
 
 module.exports = router;

@@ -150,11 +150,11 @@ export function getCountryDetail(idorname) {
   };
 }
 
-export function postCountryActivity(countryid, activityname) {
+export function postCountryActivity(countryid, activityid) {
   return async function (dispatch) {
     try {
       const response = await axios.post(
-        `/countries/${countryid}/${activityname}`,
+        `/countries/${countryid}/${activityid}`,
         {}
       );
       return dispatch({
