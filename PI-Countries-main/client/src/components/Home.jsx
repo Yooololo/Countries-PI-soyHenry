@@ -38,12 +38,12 @@ export default function Home() {
   useEffect(() => {
     dispatch(getCountries());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [allCountries]);
+  }, []);
 
   useEffect(() => {
     dispatch(getActivities());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activities]);
+  }, []);
 
   function handleClick(e) {
     e.preventDefault();
