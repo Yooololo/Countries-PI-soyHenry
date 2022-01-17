@@ -67,7 +67,10 @@ export default function PaisDetalle(props) {
               {
                 <div className={a.titulolista}>
                   <hr />
-                  {paisDetail.activities && paisDetail.activities.length ? (
+                  {console.log(paisDetail)}
+                  {paisDetail.activities &&
+                  paisDetail.activities !== [""] &&
+                  paisDetail.activities.length ? (
                     paisDetail.activities.map((activity) => (
                       <li className={a.listitaa} key={activity.activityname}>
                         Activity: {activity.activityname}{" "}

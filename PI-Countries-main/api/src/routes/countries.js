@@ -140,9 +140,11 @@ router.post("/", (req, res, next) => {
       currency,
       currencysymbol,
     });
-    newCountry.then((country) => {
-      country.setActivities(activities);
-    });
+    if (activities !== null) {
+      newCountry.then((country) => {
+        country.setActivities(activities);
+      });
+    }
     return newCountry
       .then((country) => {
         res.status(201).json(country);

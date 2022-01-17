@@ -21,14 +21,6 @@ export default function CreateActivity() {
     checkseasn: "",
   });
 
-  let errorschk = {};
-  function fijateErrorsCheck() {
-    if (!input.checkseason) {
-      errorschk.season = "Season is required";
-    }
-    return errorschk;
-  }
-
   function validate(input) {
     let errors = {};
     if (!input.activityname) {
@@ -64,7 +56,6 @@ export default function CreateActivity() {
   }
 
   function handleCheckSeason(e) {
-    fijateErrorsCheck(e.target.name);
     setInput({
       ...input,
       checkseason: e.target.checked,
@@ -114,7 +105,6 @@ export default function CreateActivity() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(input);
     if (
       input.activityname !== "" &&
       input.duration !== "" &&

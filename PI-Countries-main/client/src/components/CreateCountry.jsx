@@ -5,28 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { postCountry, getActivities } from "../actions";
 import a from "./CreateCountry.module.css";
 
-function validate(input) {
-  let errors = {};
-  if (!input.name) {
-    errors.name = "Name is required";
-  } else if (!input.image) {
-    errors.image = "Image is required";
-  } else if (!input.continent) {
-    errors.continent = "Continent is required";
-  } else if (!input.capital) {
-    errors.capital = "Capital is required";
-  } else if (!input.id) {
-    errors.id = "Id is required";
-  }
-
-  return errors;
-}
-
 export default function CreateCountry() {
   const dispatch = useDispatch();
   const history = useHistory();
   const activities = useSelector((state) => state.activities);
-  const [, setErrors] = useState({});
 
   const [input, setInput] = useState({
     name: "",
@@ -42,7 +24,7 @@ export default function CreateCountry() {
     officialname: "",
     currency: "",
     currencysymbol: "",
-    activities: '',
+    activities: "",
   });
 
   useEffect(() => {
@@ -55,12 +37,6 @@ export default function CreateCountry() {
       ...input,
       [e.target.name]: e.target.value,
     });
-    setErrors(
-      validate({
-        ...input,
-        [e.target.name]: e.target.value,
-      })
-    );
   }
 
   function estaEnElInputActivity(a) {
@@ -72,14 +48,22 @@ export default function CreateCountry() {
     return false;
   }
 
-  function handleSelect(e) {
+  function handleFilterContinent(e) {
     e.preventDefault();
-    if(estaEnElInputActivity(e.target.value) === false) {
     setInput({
       ...input,
-      activities: [...input.activities, e.target.value],
+      continent: e.target.value,
     });
   }
+
+  function handleSelect(e) {
+    e.preventDefault();
+    if (estaEnElInputActivity(e.target.value) === false) {
+      setInput({
+        ...input,
+        activities: [...input.activities, e.target.value],
+      });
+    }
   }
 
   function handleDelete(a) {
@@ -91,25 +75,40 @@ export default function CreateCountry() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(postCountry(input));
-    alert("Country created!");
-    setInput({
-      name: "",
-      image: "",
-      continent: "",
-      capital: "",
-      id: "",
-      subregion: "",
-      area: "",
-      population: "",
-      gmapslink: "",
-      timezone: "",
-      officialname: "",
-      currency: "",
-      currencysymbol: "",
-      activities: '',
-    });
-    history.push("/home");
+    console.log(input);
+    if (
+      input.name !== "" &&
+      input.image !== "" &&
+      input.continent !== "" &&
+      input.capital !== "" &&
+      input.id !== ""
+    ) {
+      if (input.activities.length === 0) {
+        input.activities = null;
+      }
+      input.timezone = "UTC" + input.timezone;
+      dispatch(postCountry(input));
+      alert("Country created!");
+      setInput({
+        name: "",
+        image: "",
+        continent: "",
+        capital: "",
+        id: "",
+        subregion: "",
+        area: "",
+        population: "",
+        gmapslink: "",
+        timezone: "",
+        officialname: "",
+        currency: "",
+        currencysymbol: "",
+        activities: "",
+      });
+      history.push("/home");
+    } else {
+      alert("Please fill all the mandatory fields (*)");
+    }
   }
 
   function handleReset(e) {
@@ -122,6 +121,10 @@ export default function CreateCountry() {
     for (let i = 0; i < options.length; i++) {
       options[i].selected = options[i].defaultSelected;
     }
+    let optionsCont = document.querySelectorAll("#countryselect option");
+    for (let i = 0; i < optionsCont.length; i++) {
+      optionsCont[i].selected = optionsCont[i].defaultSelected;
+    }
     setInput({
       name: "",
       image: "",
@@ -136,7 +139,7 @@ export default function CreateCountry() {
       officialname: "",
       currency: "",
       currencysymbol: "",
-      activities: '',
+      activities: "",
     });
   }
 
@@ -151,7 +154,7 @@ export default function CreateCountry() {
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className={a.orienta}>
             <div>
-              <label className={a.losselect}>Country Name:</label>
+              <label className={a.losselect}>Country Name*:</label>
               <input
                 className={a.inputBusqueda}
                 type="text"
@@ -161,7 +164,7 @@ export default function CreateCountry() {
               />
             </div>
             <div>
-              <label className={a.losselect}>Flag(URL):</label>
+              <label className={a.losselect}>Flag(URL)*:</label>
               <input
                 className={a.inputBusqueda}
                 type="text"
@@ -171,17 +174,27 @@ export default function CreateCountry() {
               />
             </div>
             <div>
-              <label className={a.losselect}>Continent:</label>
-              <input
-                className={a.inputBusqueda}
-                type="text"
-                name="continent"
-                value={input.continent}
-                onChange={(e) => handleChange(e)}
-              />
+              <label className={a.losselect}>Continent*:</label>
+              <select
+                className={a.elfknSelect}
+                onChange={(e) => handleFilterContinent(e)}
+                defaultValue="--Select--"
+                id="countryselect"
+              >
+                <option value="--Select--" disabled>
+                  --Select--
+                </option>
+                <option value="Africa">Africa</option>
+                <option value="North America">North America</option>
+                <option value="South America">South America</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="Oceania">Oceania</option>
+                <option value="Antarctica">Antarctica</option>
+              </select>
             </div>
             <div>
-              <label className={a.losselect}>Capital:</label>
+              <label className={a.losselect}>Capital*:</label>
               <input
                 className={a.inputBusqueda}
                 type="text"
@@ -191,7 +204,7 @@ export default function CreateCountry() {
               />
             </div>
             <div>
-              <label className={a.losselect}>ID:</label>
+              <label className={a.losselect}>ID*:</label>
               <input
                 className={a.inputBusqueda}
                 type="text"
@@ -200,7 +213,7 @@ export default function CreateCountry() {
                 onChange={(e) => handleChange(e)}
               />
             </div>
-            </div>
+          </div>
           <div className={a.orienta}>
             <div>
               <label className={a.losselect}>Subregion:</label>
@@ -213,7 +226,11 @@ export default function CreateCountry() {
               />
             </div>
             <div>
-              <label className={a.losselect}>Area:</label>
+              <label className={a.losselect}>
+                <p>
+                  Area: (km<sup>2</sup>)
+                </p>
+              </label>
               <input
                 className={a.inputBusqueda}
                 type="text"
@@ -248,11 +265,12 @@ export default function CreateCountry() {
                 className={a.inputBusqueda}
                 type="text"
                 name="timezone"
+                placeholder="XX:XX"
                 value={input.timezone}
                 onChange={(e) => handleChange(e)}
               />
             </div>
-            </div>
+          </div>
           <div className={a.orienta}>
             <div>
               <label className={a.losselect}>Official Name:</label>
@@ -286,43 +304,51 @@ export default function CreateCountry() {
             </div>
           </div>
           <div className={a.orienta}>
-            <div className={a.orienta}>
-              <p className={a.losselect}>Acitivities:</p>
-              <select defaultValue='SelectActivities' id="activityselect" className={a.elfknSelect} onChange={(e) => handleSelect(e)}>
-                <option disabled value='SelectActivities'>
-                  Select activities
+            <p className={a.losselecte}>Activities:</p>
+            <select
+              defaultValue="SelectActivities"
+              id="activityselect"
+              className={a.elfknSelect}
+              onChange={(e) => handleSelect(e)}
+            >
+              <option disabled value="SelectActivities">
+                Select activities
+              </option>
+              {activities.map((activity) => (
+                <option
+                  key={activity.activityname}
+                  value={activity.activityname}
+                >
+                  {activity.activityname}
                 </option>
-                {activities.map((activity) => (
-                  <option key={activity.activityname} value={activity.activityname}>
-                    {activity.activityname}
-                  </option>
-                ))}
-              </select>
-            </div>
-            </div>
-            <div className={a.orienta}>
+              ))}
+            </select>
+          </div>
+          <div className={a.orienta}>
             <p className={a.losselect}>Selected Activities:</p>
             <div className={a.orienta}>
               <div className={a.orienta}>
-                {input.activities && input.activities.length ? input.activities.map((activity) => (
-                  <p className={a.lasactivities} key={activity}>
-                    {activity}
-                    <button
-                    className={a.botoncin}
-                      type="button"
-                      onClick={() => handleDelete(activity)}
-                    >
-                      x
-                    </button>
-                  </p>
-                )) : ""}
+                {input.activities && input.activities.length
+                  ? input.activities.map((activity) => (
+                      <p className={a.lasactivities} key={activity}>
+                        {activity}
+                        <button
+                          className={a.botoncin}
+                          type="button"
+                          onClick={() => handleDelete(activity)}
+                        >
+                          x
+                        </button>
+                      </p>
+                    ))
+                  : ""}
               </div>
             </div>
           </div>
           <div>
             <div className={a.orienta}>
               <button className={a.boton} type="submit">
-                Submit Activity
+                Submit Country
               </button>
               <button
                 className={a.boton}
